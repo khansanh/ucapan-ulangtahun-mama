@@ -1,1 +1,174 @@
 # ucapan-ulangtahun-mama
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Ucapan Ulang Tahun Mama</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    h1 {
+      color: #222;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff4081;
+      color: white;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #e73370;
+    }
+
+    .decor {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/3465/3465824.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .decor.top-left {
+      top: 20px;
+      left: 20px;
+    }
+
+    .decor.bottom-right {
+      bottom: 20px;
+      right: 20px;
+    }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="decor top-left"></div>
+    <div class="decor bottom-right"></div>
+
+    <div class="slide active">
+      <h1>Selamat ulang tahun Mamaaa! 🎂</h1>
+      <p>
+        Terima kasih sudah menjadi cahaya dan kekuatan dalam hidup kami. Kami bersyukur setiap hari punya mama seperti mama!
+      </p>
+    </div>
+
+    <div class="slide">
+      <h1>Hari ini hari istimewa!</h1>
+      <p>
+        Mama, semoga tahun ini penuh tawa, cinta, dan kesehatan yang tak ternilai. Jangan lupa bahagia, ya!
+      </p>
+    </div>
+
+    <div class="slide">
+      <h1>Cinta kami untuk mama tak terhingga</h1>
+      <p>
+        Kami mungkin tidak selalu mengatakannya, tapi setiap detik kami mencintai mama lebih dari kemarin.
+      </p>
+    </div>
+
+    <div class="slide">
+      <h1>Doa terbaik untuk mama</h1>
+      <p>
+        Semoga setiap langkah mama selalu dilindungi Tuhan, dan setiap harapan mama dijawab dengan indah oleh semesta.
+      </p>
+    </div>
+
+    <div class="slide">
+      <h1>Kami selalu ada untuk mama 💗</h1>
+      <p>
+        Terima kasih atas pelukan hangat, nasihat bijak, dan cinta tak bersyarat. Selamat ulang tahun mama tersayang!
+      </p>
+    </div>
+
+    <div class="buttons">
+      <button onclick="prevSlide()">Sebelumnya</button>
+      <button onclick="nextSlide()">Selanjutnya</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+</body>
+</html>
